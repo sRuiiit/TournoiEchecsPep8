@@ -1,0 +1,15 @@
+# Dossiers à ignorer
+.venv/
+.idea/
+data/
+
+# Fichiers systèmes
+.DS_Store
+
+# Bytecode Python
+__pycache__/
+*.py[cod]
+
+# Fichiers log / temporaires
+*.log
+*.tmp
