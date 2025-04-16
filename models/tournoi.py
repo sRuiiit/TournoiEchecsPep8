@@ -5,13 +5,25 @@ from models.tour import Tour
 
 
 class Tournoi:
-    def __init__(self, nom, lieu, date_debut, date_fin, joueurs, tours, id_tournoi, nb_tours=4, tour_actuel=0, description=""):
+    def __init__(
+        self,
+        nom,
+        lieu,
+        date_debut,
+        date_fin,
+        joueurs,
+        tours,
+        id_tournoi,
+        nb_tours=4,
+        tour_actuel=0,
+        description="",
+    ):
         self.nom = nom
         self.lieu = lieu
         self.date_debut = date_debut
         self.date_fin = date_fin
         self.joueurs = joueurs  # liste de Joueur
-        self.tours = tours      # liste de Tour
+        self.tours = tours  # liste de Tour
         self.id_tournoi = id_tournoi
         self.nb_tours = nb_tours
         self.tour_actuel = tour_actuel
@@ -28,7 +40,7 @@ class Tournoi:
             "id_tournoi": self.id_tournoi,
             "nb_tours": self.nb_tours,
             "tour_actuel": self.tour_actuel,
-            "description": self.description
+            "description": self.description,
         }
 
     @classmethod
@@ -43,10 +55,10 @@ class Tournoi:
             id_tournoi=data["id_tournoi"],
             nb_tours=data.get("nb_tours", 4),
             tour_actuel=data.get("tour_actuel", 0),
-            description=data.get("description", "")
+            description=data.get("description", ""),
         )
 
     def __str__(self):
         a = f"{self.nom} ({self.lieu}) - "
         b = f"du {self.date_debut} au {self.date_fin}"
-        return a+b
+        return a + b

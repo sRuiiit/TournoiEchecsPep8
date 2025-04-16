@@ -1,5 +1,7 @@
 import os
-from tinydb import TinyDB, Query
+
+from tinydb import Query, TinyDB
+
 from models.joueur import Joueur
 from models.tournoi import Tournoi
 
@@ -9,8 +11,8 @@ class DatabaseManager:
         # Vérifier si le fichier existe, sinon le créer
         if not os.path.exists(db_path):
             os.makedirs(os.path.dirname(db_path), exist_ok=True)
-            with open(db_path, 'w') as f:
-                f.write('{}')  # Initialisation avec un JSON vide
+            with open(db_path, "w") as f:
+                f.write("{}")  # Initialisation avec un JSON vide
 
         self.db = TinyDB(db_path)
         self.players_table = self.db.table("players")
@@ -23,9 +25,8 @@ class DatabaseManager:
         )
 
         all_joueurs = self.players_table.all()
-        self.player_count = max(
-            [j.get("id_joueur", 0) for j in all_joueurs], default=0
-        )
+        self.player_count = max([j.get("id_joueur", 0) for j in all_joueurs],
+                                default=0)
 
     def insert_player(self, joueur):
         self.player_count += 1
@@ -40,7 +41,8 @@ class DatabaseManager:
 
     def update_player(self, joueur):
         self.players_table.update(
-            joueur.to_dict(), Query().id_joueur == joueur.id_joueur)
+            joueur.to_dict(), Query().id_joueur == joueur.id_joueur
+        )
 
     def delete_player(self, player_id):
         self.players_table.remove(Query().id_joueur == player_id)
@@ -55,13 +57,13 @@ class DatabaseManager:
 
     def update_tournament(self, tournoi):
         self.tournaments_table.update(
-            tournoi.to_dict(),
-            Query().id_tournoi == tournoi.id_tournoi
+            tournoi.to_dict(), Query().id_tournoi == tournoi.id_tournoi
         )
 
     def get_tournament(self, tournament_id):
         tournament_data = self.tournaments_table.get(
-            Query().id_tournoi == tournament_id)
+            Query().id_tournoi == tournament_id
+        )
         if tournament_data:
             return Tournoi.from_dict(tournament_data)
         return None
