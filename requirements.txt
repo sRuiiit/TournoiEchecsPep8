@@ -5,3 +5,5 @@ flake8==4.0.1
 black==24.3.0
 isort==5.10.1
 flake8-html==0.4.1
+jinja2>=3.0
+markupsafe>=2.0
