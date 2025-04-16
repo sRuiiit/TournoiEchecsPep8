@@ -69,6 +69,9 @@ pip install -r requirements.txt
 - [black](https://black.readthedocs.io/) — formatage automatique
 - [isort](https://pycqa.github.io/isort/) — tri des imports
 
+```bash
+python testFlake8.py
+```
 ---
 
 ### 💾 Base de données
