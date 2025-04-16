@@ -2,6 +2,7 @@
 .venv/
 .idea/
 data/
+flake8-report/
 
 # Fichiers systèmes
 .DS_Store
