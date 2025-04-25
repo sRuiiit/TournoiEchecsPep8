@@ -1,6 +1,9 @@
 import re
 from datetime import datetime
 
+def afficher_confirmation_creation_joueur():
+    print("✅ Joueur ajouté avec succès.")
+
 def valider_identifiant_national(identifiant):
     """Valide l'identifiant national selon le format 'ID12345'"""
     pattern = r'^[A-Z]{2}[0-9]{5}$'
