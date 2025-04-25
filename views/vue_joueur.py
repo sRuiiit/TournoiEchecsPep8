@@ -12,11 +12,26 @@ def afficher_liste_joueurs(joueurs):
               f"Né(e) le:{getattr(joueur, 'date_naissance', 'Non indiqué')})")
 
 
+
+
 def obtenir_donnees_joueur():
+    print("\nCréation d'un nouveau joueur :")
+    nom = input("Nom : ")
+    prenom = input("Prénom : ")
+    identifiant = input("Identifiant national : ")
+    classement = input("Classement : ")
+    date_naissance = input("Date de naissance (YYYY-MM-DD) : ")
+    return nom, prenom, identifiant, classement, date_naissance  # Correct ordre
+
+
+
+
+
+'''def obtenir_donnees_joueur():
     print("\nCréation d'un nouveau joueur :")
     nom = input("Nom : ")
     prenom = input("Prénom : ")
     date_naissance = input("Date de naissance (YYYY-MM-DD) : ")
     identifiant = input("Identifiant national : ")
     classement = int(input("Classement : "))
-    return nom, prenom, date_naissance, identifiant, classement
+    return nom, prenom, date_naissance, identifiant, classement'''
