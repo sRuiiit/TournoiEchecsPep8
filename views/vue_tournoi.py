@@ -156,3 +156,23 @@ def afficher_recapitulatif_tournoi(tournoi):
         a3 = f"{joueur.nom:<20}{joueur.prenom:<20}"
         b3 = f"{scores.get(joueur.id_joueur, 0):<15}"
         print(a3 + b3)
+
+# Fonctions de menu pour le contrôleur_menu
+
+def demander_selection_menu():
+    return input("Choisissez une option : ")
+
+def demander_selection_menu_joueurs():
+    return input("Votre choix : ")
+
+def demander_selection_menu_tournois():
+    return input("Votre choix : ")
+
+def afficher_aucun_tournoi_charge():
+    print("⚠️ Aucun tournoi chargé. Veuillez en créer ou en charger un d'abord.")
+
+def afficher_au_revoir():
+    print("Au revoir !")
+
+def afficher_choix_invalide():
+    print("Choix invalide. Veuillez réessayer.")
