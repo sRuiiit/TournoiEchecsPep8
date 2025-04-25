@@ -1,17 +1,17 @@
-# controllers/controleur_application.py
+# Nouveau fichier controleur_application.py
 
 from controllers.controleur_menu import ControleurMenu
 from controllers.controleur_joueur import ControleurJoueur
 from controllers.controleur_tournoi import ControleurTournoi
 from models.database import DatabaseManager
-
+from views.vue_tournoi import afficher_message
 
 class ControleurApplication:
     def __init__(self):
         self.db = DatabaseManager()
-        self.menu = ControleurMenu()
         self.controleur_joueur = ControleurJoueur(self.db)
         self.controleur_tournoi = ControleurTournoi(self.db)
+        self.menu = ControleurMenu(self.controleur_joueur, self.controleur_tournoi)
 
     def run(self):
         while True:
@@ -21,7 +21,7 @@ class ControleurApplication:
             elif choix == "2":
                 self.menu_tournoi()
             elif choix == "3":
-                print("Fermeture de l'application.")
+                afficher_message("Fermeture de l'application.")
                 break
 
     def menu_joueur(self):
@@ -43,3 +43,4 @@ class ControleurApplication:
                 self.controleur_tournoi.afficher_tournois()
             elif choix == "3":
                 break
+
